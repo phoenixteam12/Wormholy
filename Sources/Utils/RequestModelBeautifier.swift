@@ -29,7 +29,14 @@ class RequestModelBeautifier: NSObject {
         }
         let final = NSMutableAttributedString()
         for (key, value) in headerDictionary {
-            final.append(NSMutableAttributedString().bold(key).normal(" " + value + "\n"))
+            let displayValue: String
+            switch key.lowercased() {
+            case "client_id", "client_secret":
+                displayValue = "*"
+            default:
+                displayValue = value
+            }
+            final.append(NSMutableAttributedString().bold(key).normal(" " + displayValue + "\n"))
         }
         return final
     }

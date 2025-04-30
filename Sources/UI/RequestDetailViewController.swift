@@ -52,16 +52,10 @@ class RequestDetailViewController: WHBaseViewController {
     
     // MARK: - Actions
     @objc func openActionSheet(_ sender: UIBarButtonItem){
-        let ac = UIAlertController(title: "Wormholy", message: "Choose an option", preferredStyle: .actionSheet)
+        let ac = UIAlertController(title: "Actions", message: "Choose an option", preferredStyle: .actionSheet)
         
         ac.addAction(UIAlertAction(title: "Share", style: .default) { [weak self] (action) in
             self?.shareContent(sender)
-        })
-        ac.addAction(UIAlertAction(title: "Share (request as cURL)", style: .default) { [weak self] (action) in
-            self?.shareContent(sender, requestExportOption: .curl)
-        })
-        ac.addAction(UIAlertAction(title: "Share as Postman Collection", style: .default) { [weak self] (action) in
-            self?.shareContent(sender, requestExportOption: .postman)
         })
         ac.addAction(UIAlertAction(title: "Close", style: .cancel) { (action) in
         })

@@ -22,7 +22,8 @@ open class Storage: NSObject {
         guard request != nil else {
             return
         }
-        
+        let host = request?.host ?? ""
+        guard host.contains("tbeta") || host.contains("talpha") else { return }
         if let index = requests.firstIndex(where: { (req) -> Bool in
             return request?.id == req.id ? true : false
         }){
